@@ -27,5 +27,16 @@ let isVowel2 char =
 let isVowel3 char =
   match char with
   'a' | 'e' | 'i' | 'o' | 'u' -> true
- | _ -> false
+ | _ -> false;;
+
+factorial 5 ;;
+
+
+(* Example 3 *)
+(* gcd ~ greatest common divisor *)
+let rec gcd a b =
+  if b = 0 then a else gcd b (a mod b);;
+
+gcd 15 9;;
+
 

@@ -34,8 +34,21 @@ let rec length l =
 
 
 (* Sum of elements in a list *)
-(* val total: 'a list -> int = <fun> *)
+(* val total: int list -> int = <fun> *)
 let rec total l =
   match l with
     [] -> 0
   | h::t -> h + total t;;
+
+(* alternative way *)
+
+let rec inner_length l n =
+  match l with
+  [] -> n
+  | h::t -> inner_length t (n+1);;
+
+inner_length [1; 2; 3; 4; 5] 0;;
+
+(* OR we can wrap the inner_length function up in another function ...*)
+
+let length l = inner_length l 0;;

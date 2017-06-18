@@ -29,7 +29,7 @@ let rec length l =
 
 let rec length l = 
   match l with
-  [] -> 0
+    [] -> 0
   | _::t -> 1 + length t;;
 
 
@@ -44,7 +44,7 @@ let rec total l =
 
 let rec inner_length l n =
   match l with
-  [] -> n
+    [] -> n
   | h::t -> inner_length t (n+1);;
 
 inner_length [1; 2; 3; 4; 5] 0;;
@@ -52,3 +52,21 @@ inner_length [1; 2; 3; 4; 5] 0;;
 (* OR we can wrap the inner_length function up in another function ...*)
 
 let length l = inner_length l 0;;
+
+
+(* odd elements out of a list *)
+let rec odd_elements l =
+  match l with
+    [] -> []
+  | [a] -> [a]
+  | a::_::t -> a :: odd_elements t;;
+
+(* another way*)
+(*
+- since the above functions firs two pattern matching conditions always return itself
+- we can switch the conditions around and replace the first two with bellow
+*)
+let rec odd_elements2 l =
+  match l with 
+    a::_::t -> a :: odd_elements2 t
+  | _ -> l;;

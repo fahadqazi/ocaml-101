@@ -70,3 +70,26 @@ let rec odd_elements2 l =
   match l with 
     a::_::t -> a :: odd_elements2 t
   | _ -> l;;
+
+(* appending two lists*)
+let rec append a b = 
+  match a with
+  [] -> b
+  | h::t -> h :: append t b;;
+
+(* reverse list*)
+let rec rev l =
+  match l with 
+  [] -> []
+  | h::t -> rev t @ [h];;
+
+(* take & drop - not exhaustive *)
+let rec take n l =
+  if n = 0 then [] else
+  match l with
+  h::t -> h :: take (n-1) t;;
+
+let rec drop n l = 
+  if n = 0 then l else 
+  match l with 
+  h::t -> drop (n-1) t;;

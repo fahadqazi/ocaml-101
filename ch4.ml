@@ -19,11 +19,23 @@ let isNil l =
     [] -> true
   | _ -> false;;
 
+(* Length of a list *)
 (* val length: 'a list -> int = <fun> *)
 
 let rec length l =
   match l with
     [] -> 0
-  | h::t -> 1 + length t ;;
+  | h::t -> 1 + length t;;
 
-length [1,2,3,4,5];;
+let rec length l = 
+  match l with
+  [] -> 0
+  | _::t -> 1 + length t;;
+
+
+(* Sum of elements in a list *)
+(* val total: 'a list -> int = <fun> *)
+let rec total l =
+  match l with
+    [] -> 0
+  | h::t -> h + total t;;
